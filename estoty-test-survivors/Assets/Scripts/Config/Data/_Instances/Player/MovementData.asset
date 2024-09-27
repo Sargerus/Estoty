@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: MovementData
   m_EditorClassIdentifier: 
   Data:
-    Acceleration: 1
+    Acceleration: 8
+    MaxAcceleration: 4
+    Deceleration: 6
