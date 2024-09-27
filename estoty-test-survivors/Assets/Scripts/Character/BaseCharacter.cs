@@ -7,12 +7,5 @@ namespace estoty_test
         public MovementData MovementData;
         public HealthData HealthData;
         public ArmorData ArmorData;
-
-        protected BaseCharacter()
-        {
-            MovementData = new MovementData();
-            HealthData = new HealthData();
-            ArmorData = new ArmorData();
-        }
     }
 }

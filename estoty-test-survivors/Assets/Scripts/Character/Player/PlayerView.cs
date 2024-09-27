@@ -1,17 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace estoty_test
 {
 
     [RequireComponent(typeof(Rigidbody2D))]
-    public class PlayerView : MonoBehaviour
+    public class PlayerView : BaseView
     {
         private const string horizontalAxis = "Horizontal";
         private const string verticalAxis = "Vertical";
 
         private Rigidbody2D _rb2d;
+        
+        private PlayerCharacter _character;
+
+        public override void SetPresenter(BaseCharacter character)
+        {
+            _character = (PlayerCharacter)character;
+        }
 
         private void Awake()
         {
