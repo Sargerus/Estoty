@@ -1,8 +1,14 @@
+using System;
+
 namespace estoty_test
 {
     public class DamagableComponent : BaseComponent
     {
+        public CharacterAnimatorController CharacterAnimatorController;
+
         private HealthComponent _healthComponent;
+
+        public Action OnTakeDamage;
 
         public void TakeDamage(float damage)
         {
@@ -11,6 +17,8 @@ namespace estoty_test
 
                 return;
 
+            OnTakeDamage?.Invoke();
+            CharacterAnimatorController.PlayTakeDamageAnimation();   
             _healthComponent.AddHealth(-damage);
         }
 

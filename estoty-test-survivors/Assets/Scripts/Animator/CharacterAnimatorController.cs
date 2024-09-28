@@ -4,9 +4,15 @@ namespace estoty_test
 {
     public class CharacterAnimatorController : MonoBehaviour
     {
-        private const string MoveSpeed = nameof(MoveSpeed);
+        protected const string MoveSpeed = nameof(MoveSpeed);
+        private const string Hit = nameof(Hit);
 
-        [SerializeField] private Animator _playerAnimator;
+        [SerializeField] protected Animator _playerAnimator;
+
+        public void PlayTakeDamageAnimation()
+        {
+            _playerAnimator.SetTrigger(Hit);
+        }
 
         public void SetMoveSpeed(float speed)
         {

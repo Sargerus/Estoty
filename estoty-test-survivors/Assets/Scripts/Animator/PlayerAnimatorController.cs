@@ -1,6 +1,6 @@
 namespace estoty_test
 {
-    public class PlayerAnimatorController : CharacterAnimatorController
+    public sealed class PlayerAnimatorController : CharacterAnimatorController
     {
 
     }

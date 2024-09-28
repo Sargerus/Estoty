@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8186982234418204034}
   - component: {fileID: 435994117944570600}
   - component: {fileID: 1439215885138955148}
-  - component: {fileID: 7964794448623221834}
+  - component: {fileID: 7959942052238809305}
   - component: {fileID: 779550745456524746}
   - component: {fileID: 4123210308970206503}
   m_Layer: 6
@@ -265,8 +265,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleeParent: {fileID: 1226182371085834381}
   meleeCenter: {fileID: 1226182371085834381}
-  _playersAnimator: {fileID: 0}
---- !u!114 &7964794448623221834
+  _playersAnimator: {fileID: 7959942052238809305}
+--- !u!114 &7959942052238809305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -318,7 +318,7 @@ MonoBehaviour:
     Acceleration: 8
     MaxAcceleration: 4
     Deceleration: 6
-  AnimatorController: {fileID: 7964794448623221834}
+  AnimatorController: {fileID: 7959942052238809305}
 --- !u!1 &4083611081388271509
 GameObject:
   m_ObjectHideFlags: 0

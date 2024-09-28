@@ -94,12 +94,14 @@ GameObject:
   m_Component:
   - component: {fileID: 395005789187217144}
   - component: {fileID: 4542770514089842364}
+  - component: {fileID: 5697664124265520516}
   - component: {fileID: 1974968804447463402}
   - component: {fileID: 123481520511699080}
   - component: {fileID: 6644888843871909388}
   - component: {fileID: 5521873288127882442}
   - component: {fileID: 3188574884967623820}
   - component: {fileID: 1050171975149185697}
+  - component: {fileID: 8532270599058815444}
   m_Layer: 0
   m_Name: EnemyFast
   m_TagString: Untagged
@@ -175,6 +177,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5697664124265520516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4153534676428634434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02b580112371f64499110a22f8bffff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 1974968804447463402}
 --- !u!95 &1974968804447463402
 Animator:
   serializedVersion: 5
@@ -208,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc17a96c2475c142979a5e8805bd5a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterAnimatorController: {fileID: 5697664124265520516}
 --- !u!114 &6644888843871909388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +297,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 3
   m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -308,4 +324,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e29d4607fe2374da571b52ba8e37c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chase: {fileID: 0}
   healthComponent: {fileID: 6644888843871909388}
+  damagableComponent: {fileID: 123481520511699080}
+  chaseTransformMovementComponent: {fileID: 8532270599058815444}
+--- !u!114 &8532270599058815444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4153534676428634434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db2ea63b3118784d89b8509490c73db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  Rigidbody2D: {fileID: 3188574884967623820}
+  MovementData:
+    Acceleration: 4
+    MaxAcceleration: 4
+    Deceleration: 4
+  AnimatorController: {fileID: 5697664124265520516}
