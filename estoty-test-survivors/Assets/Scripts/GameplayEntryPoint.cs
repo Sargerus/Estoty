@@ -7,14 +7,15 @@ namespace estoty_test
     {
         [SerializeField] private SceneContext sceneContext;
         [SerializeField] private HUDBehaviour hudBehaviour;
-        [SerializeField] private PlayerCharacter playerPrefab;
+        [SerializeField] private GameObject playerPrefab;
 
         private void Start()
         {
             sceneContext.Run();
 
             var player = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
-            hudBehaviour.SetPlayerInfo(player);
+            var character = player.GetComponentInChildren<PlayerCharacter>();
+            hudBehaviour.SetPlayerInfo(character);
         }
     }
 }

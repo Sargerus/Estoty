@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using UnityEngine;
 
@@ -6,8 +7,10 @@ namespace estoty_test
 {
     public class PlayerCharacter : BaseCharacter
     {
-        [SerializeField] private Transform meleeParent;
-        [SerializeField] private Transform meleeCenter;
+        [SerializeField] private Transform weaponParent;
+        [SerializeField] private Transform weaponCenter;
+        [SerializeField] private Transform weaponColliderParent;
+        [SerializeField] private Transform playerBody;
         [SerializeField] private RotateToWeaponTargetComponent rotateToWeaponTargetComponent;
         [SerializeField] private PlayerAnimatorController _playersAnimator;
 
@@ -18,30 +21,42 @@ namespace estoty_test
             _components.AddRange(GetComponents<BaseComponent>());
         }
 
-        public void ReplaceMeleeWeapon(MeleeWeaponBonusScriptableObject meleeData)
+        public void ReplaceWeapon(WeaponBonusScriptableObject meleeData)
         {
-            foreach (var melee in _components.OfType<MeleeWeaponComponent>())
-            {
-                melee.RemoveComponent();
-            }
-            
-            var meleeComponent = gameObject.AddComponent<MeleeWeaponComponent>();
-            meleeComponent.CreateWeapon(meleeData.View, meleeParent, meleeCenter);
+            DropAllWeapon();
+
+            var weaponComponent = gameObject.AddComponent<WeaponComponent>();
+            weaponComponent.CreateWeapon(meleeData.View, weaponParent, weaponCenter, weaponColliderParent);
+            _components.Add(weaponComponent);
 
             if (rotateToWeaponTargetComponent)
             {
-                rotateToWeaponTargetComponent.Character = this;
-                rotateToWeaponTargetComponent.MeleeWeaponComponent = meleeComponent;
+                rotateToWeaponTargetComponent.Target = playerBody;
+                rotateToWeaponTargetComponent.WeaponComponent = weaponComponent;
             }
+        }
+
+        private void DropAllWeapon()
+        {
+            List<BaseComponent> toDelete = new();
+
+            foreach (var component in _components.OfType<WeaponComponent>())
+            {
+                component.Dispose();
+                toDelete.Add(component);
+            }
+
+            foreach(var delete in toDelete)
+                _components.Remove(delete);
         }
 
         public void ApplyBonus(BaseBonusScriptableObject bonusData)
         {
-            if (bonusData is MeleeWeaponBonusScriptableObject meleeData)
+            if (bonusData is WeaponBonusScriptableObject meleeData)
             {
-                ReplaceMeleeWeapon(meleeData);
+                ReplaceWeapon(meleeData);
             }
-        }        
+        }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {

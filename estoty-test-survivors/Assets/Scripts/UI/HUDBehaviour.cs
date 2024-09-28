@@ -4,12 +4,12 @@ namespace estoty_test
 {
     public class HUDBehaviour : MonoBehaviour
     {
-        [SerializeField] private CameraFollowTarget cameraFollowTarget;
+        [SerializeField] private FollowTarget cameraFollowTarget;
 
         public void SetPlayerInfo(PlayerCharacter character)
         {
-            cameraFollowTarget.SetFollowTarget(character.transform);
-            cameraFollowTarget.Follow(true);
+            cameraFollowTarget.Target = character.transform;
+            cameraFollowTarget.IsFollow = true;
         }
     }
 }
