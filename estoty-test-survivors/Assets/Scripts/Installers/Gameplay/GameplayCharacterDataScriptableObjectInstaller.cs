@@ -7,10 +7,11 @@ namespace estoty_test
     public class GameplayCharacterDataScriptableObjectInstaller : ScriptableObjectInstaller
     {
         [SerializeField] private CharacterConfigScriptableObject _playerData;
+        [SerializeField] private WeaponsContainerScriptableObject _weaponContainer;
 
         public override void InstallBindings()
         {
-            Container.BindInstances(_playerData);
+            Container.BindInstances(_playerData, _weaponContainer);
         }
     }
 }

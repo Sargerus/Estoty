@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: DefaultGameplayInstaller
   m_EditorClassIdentifier: 
   _playerData: {fileID: 11400000, guid: 846a41edd44b8a540816e5edde2c8d56, type: 2}
+  _weaponContainer: {fileID: 11400000, guid: 2ef73604248108f4eb9109669e160d60, type: 2}
