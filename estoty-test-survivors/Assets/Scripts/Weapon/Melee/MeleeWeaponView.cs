@@ -8,6 +8,7 @@ namespace estoty_test
     {
         protected Animator _animator;
 
+        public DamagableComponent CurrentTarget;
         public MeleeWeaponData WeaponData;
         public Action<DamagableComponent> OnAttack;
 

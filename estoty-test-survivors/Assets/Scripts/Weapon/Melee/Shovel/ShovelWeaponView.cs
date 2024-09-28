@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 
 namespace estoty_test
 {
-    public class ShovelWeaponView : MeleeWeaponView
+    public sealed class ShovelWeaponView : MeleeWeaponView
     {
         [SerializeField] private BaseEnemyInRangeCheck enemyInRangeCheck;
         [SerializeField] private ShovelDamageCheck shovelDamageCheck;
@@ -19,7 +18,7 @@ namespace estoty_test
             if (!CanMeleeAttack)
                 return;
 
-            if(!enemyInRangeCheck.IsEnemyInRange()) 
+            if (!IsEnemyInRange())
                 return;
 
             Attack();
@@ -34,6 +33,14 @@ namespace estoty_test
         private void OnDestroy()
         {
             shovelDamageCheck.OnDamage -= OnDamage;
+        }
+
+        private bool IsEnemyInRange()
+        {
+            bool result = enemyInRangeCheck.IsEnemyInRange(out var damagableComponent);
+            CurrentTarget = damagableComponent;
+
+            return result;
         }
     }
 }

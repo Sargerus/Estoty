@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace estoty_test
@@ -7,21 +6,34 @@ namespace estoty_test
     [RequireComponent(typeof(Collider2D))]
     public class ShovelInRangeCheck : BaseEnemyInRangeCheck
     {
-        private Collider2D _collider;
+        [SerializeField] private List<Collider2D> _colliders;
         private List<Collider2D> _overlapResult = new();
 
-        private void Awake()
+        public override bool IsEnemyInRange(out DamagableComponent damagableComponent)
         {
-            _collider = GetComponent<Collider2D>();
-        }
+            damagableComponent = null;
 
-        public override bool IsEnemyInRange()
-        {
-            ContactFilter2D filter = new ContactFilter2D();
+            ContactFilter2D filter = new();
             filter.NoFilter();
-            _collider.OverlapCollider(filter, _overlapResult);
 
-            return _overlapResult.Count > 0 && _overlapResult.Any(g => g.TryGetComponent<DamagableComponent>(out _));
+            foreach (var collider in _colliders)
+            {
+                collider.OverlapCollider(filter, _overlapResult);
+
+                if (_overlapResult.Count <= 0)
+                    continue;
+
+                foreach (var res in _overlapResult)
+                {
+                    if (res.TryGetComponent<DamagableComponent>(out damagableComponent))
+                        break;
+                }
+
+                if (damagableComponent != null)
+                    break;
+            }
+
+            return damagableComponent != null;
         }
     }
 }

@@ -4,6 +4,6 @@ namespace estoty_test
 {
     public abstract class BaseEnemyInRangeCheck : MonoBehaviour
     {
-        public abstract bool IsEnemyInRange();
+        public abstract bool IsEnemyInRange(out DamagableComponent damagableComponent);
     }
 }

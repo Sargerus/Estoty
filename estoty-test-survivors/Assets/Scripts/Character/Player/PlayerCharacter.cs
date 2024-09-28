@@ -8,6 +8,7 @@ namespace estoty_test
     {
         [SerializeField] private Transform meleeParent;
         [SerializeField] private Transform meleeCenter;
+        [SerializeField] private RotateToWeaponTargetComponent rotateToWeaponTargetComponent;
         [SerializeField] private PlayerAnimatorController _playersAnimator;
 
         private List<BaseComponent> _components = new();
@@ -26,6 +27,12 @@ namespace estoty_test
             
             var meleeComponent = gameObject.AddComponent<MeleeWeaponComponent>();
             meleeComponent.CreateWeapon(meleeData.View, meleeParent, meleeCenter);
+
+            if (rotateToWeaponTargetComponent)
+            {
+                rotateToWeaponTargetComponent.Character = this;
+                rotateToWeaponTargetComponent.MeleeWeaponComponent = meleeComponent;
+            }
         }
 
         public void ApplyBonus(BaseBonusScriptableObject bonusData)

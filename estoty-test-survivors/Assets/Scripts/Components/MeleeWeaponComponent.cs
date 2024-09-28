@@ -8,7 +8,8 @@ namespace estoty_test
 
         public void CreateWeapon(MeleeWeaponView weaponPrefab, Transform weaponParent, Transform weaponPosition)
         {
-            View = Instantiate(weaponPrefab, weaponPosition.position, Quaternion.identity, weaponParent);
+            View = Instantiate(weaponPrefab, weaponPosition.position, weaponPrefab.transform.localRotation, weaponParent);
+            View.transform.localRotation = weaponPrefab.transform.localRotation;
         }
 
         public override void RemoveComponent()
