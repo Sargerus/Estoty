@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5c9f152da85c9141a779600dd887106, type: 3}
-  m_Name: ShovelWeaponBonus
+  m_Name: PistolWeaponBonus
   m_EditorClassIdentifier: 
-  View: {fileID: 8671188869857972360, guid: 6bc477b91e052294f8747a49eae8b88f, type: 3}
+  View: {fileID: 2605798588851003967, guid: 3d9086a5f0645c644a99406345ff0dfc, type: 3}
