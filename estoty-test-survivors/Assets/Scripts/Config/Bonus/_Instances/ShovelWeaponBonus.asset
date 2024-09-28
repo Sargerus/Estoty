@@ -12,10 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6d2ae1d0a6b1c4cb2c5230153e88e5, type: 3}
   m_Name: ShovelWeaponBonus
   m_EditorClassIdentifier: 
-  Data:
-    Id: shovel
-    AttackRate: 1
-    AttackSpeed: 1
-    AttackRadius: 1
-    Damage: 5
-    View: {fileID: 8671188869857972360, guid: 6bc477b91e052294f8747a49eae8b88f, type: 3}
+  View: {fileID: 8671188869857972360, guid: 6bc477b91e052294f8747a49eae8b88f, type: 3}

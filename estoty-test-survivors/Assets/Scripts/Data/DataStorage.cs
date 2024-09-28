@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 namespace estoty_test
 {
@@ -29,7 +28,7 @@ namespace estoty_test
     [Serializable]
     public class HealthData : BaseData
     {
-        public float BaseHP;
+        public float MaxHP;
         public float CurrentHP;
         public float AdditionalHP;
 
@@ -38,7 +37,7 @@ namespace estoty_test
             if (other is not HealthData hd)
                 return;
 
-            BaseHP = hd.BaseHP;
+            MaxHP = hd.MaxHP;
             CurrentHP = hd.CurrentHP;
             AdditionalHP = hd.AdditionalHP;
         }
@@ -67,14 +66,11 @@ namespace estoty_test
         public float AttackRadius;
         public float Damage;
 
-        public MeleeWeaponView View;
-
-        public MeleeWeaponData(float damage, float radius, float attackRate, MeleeWeaponView view, string id)
+        public MeleeWeaponData(float damage, float radius, float attackRate, string id)
         {
             Damage = damage;
             AttackRadius = radius;
             AttackRate = attackRate;
-            View = view;
             Id = id;
         }
 
@@ -87,7 +83,6 @@ namespace estoty_test
             Damage = mwd.Damage;
             AttackRadius = mwd.AttackRadius;
             AttackRate = mwd.AttackRate;
-            View = mwd.View;
         }
     }
 

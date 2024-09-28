@@ -45,10 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d62f256189d474e9796e516978911b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkCollider: {fileID: 2151938393676739072}
-  touchingMask:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!61 &2151938393676739072
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -162,7 +158,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b89a2ac3fbf29344cae45d39a8fda927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaponData:
+    Id: shovel
+    AttackRate: 1
+    AttackSpeed: 1
+    AttackRadius: 1
+    Damage: 2
   enemyInRangeCheck: {fileID: 4783143927859352665}
+  shovelDamageCheck: {fileID: 5162003947254526753}
 --- !u!1 &5016921984506073551
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +177,7 @@ GameObject:
   - component: {fileID: 986705327310443898}
   - component: {fileID: 5479724170682584894}
   - component: {fileID: 4476136883598111747}
+  - component: {fileID: 5162003947254526753}
   m_Layer: 0
   m_Name: weapon
   m_TagString: Untagged
@@ -260,7 +264,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -277,7 +281,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.32473883, y: 0.013243526}
@@ -293,3 +297,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.149535, y: 0.3366046}
   m_EdgeRadius: 0
+--- !u!114 &5162003947254526753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5016921984506073551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e38e5a25f5fc4f4a965048fa90e3c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

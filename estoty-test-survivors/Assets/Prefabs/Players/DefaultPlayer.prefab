@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 8186982234418204034}
   - component: {fileID: 435994117944570600}
   - component: {fileID: 1439215885138955148}
-  - component: {fileID: 5887701611230773566}
   - component: {fileID: 7964794448623221834}
   - component: {fileID: 779550745456524746}
   - component: {fileID: 4123210308970206503}
@@ -193,7 +192,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -264,24 +263,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab1f9b8d2011e44a81a880a09dbad06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerView: {fileID: 5887701611230773566}
   meleeParent: {fileID: 1226182371085834381}
   meleeCenter: {fileID: 1226182371085834381}
---- !u!114 &5887701611230773566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4015332962611355331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67550208e80ba7f428e1958cbeffed9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1439215885138955148}
-  showDebugMeleeRange: 1
-  _playersAnimator: {fileID: 7964794448623221834}
+  _playersAnimator: {fileID: 0}
 --- !u!114 &7964794448623221834
 MonoBehaviour:
   m_ObjectHideFlags: 0

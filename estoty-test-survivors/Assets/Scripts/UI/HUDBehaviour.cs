@@ -8,7 +8,7 @@ namespace estoty_test
 
         public void SetPlayerInfo(PlayerCharacter character)
         {
-            cameraFollowTarget.SetFollowTarget(character.View.transform);
+            cameraFollowTarget.SetFollowTarget(character.transform);
             cameraFollowTarget.Follow(true);
         }
     }

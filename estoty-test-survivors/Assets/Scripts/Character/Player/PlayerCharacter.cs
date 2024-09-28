@@ -6,13 +6,11 @@ namespace estoty_test
 {
     public class PlayerCharacter : BaseCharacter
     {
-        [SerializeField] private PlayerView playerView;
         [SerializeField] private Transform meleeParent;
         [SerializeField] private Transform meleeCenter;
+        [SerializeField] private PlayerAnimatorController _playersAnimator;
 
         private List<BaseComponent> _components = new();
-
-        public override BaseView View { get => playerView; protected set => View = value; }
 
         private void Awake()
         {
@@ -27,15 +25,23 @@ namespace estoty_test
             }
             
             var meleeComponent = gameObject.AddComponent<MeleeWeaponComponent>();
-            meleeComponent.WeaponData = new MeleeWeaponData(meleeData.Data);
-            meleeComponent.CreateWeapon(meleeParent, meleeCenter);
+            meleeComponent.CreateWeapon(meleeData.View, meleeParent, meleeCenter);
         }
 
-        internal void ApplyBonus(BaseBonusScriptableObject bonusData)
+        public void ApplyBonus(BaseBonusScriptableObject bonusData)
         {
             if (bonusData is MeleeWeaponBonusScriptableObject meleeData)
             {
                 ReplaceMeleeWeapon(meleeData);
+            }
+        }        
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent(out BonusBehaviour bb))
+            {
+                ApplyBonus(bb.BonusData);
+                Destroy(collision.gameObject);
             }
         }
     }
