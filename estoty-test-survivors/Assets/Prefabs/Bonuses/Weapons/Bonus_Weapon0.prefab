@@ -46,8 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797265800beeda344b52dfbfe17eadf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BonusType: 10
-  Id: shovel
+  BonusData: {fileID: 11400000, guid: 827ff030d1a8b70449de153f38149c05, type: 2}
 --- !u!61 &7361443602723413664
 BoxCollider2D:
   m_ObjectHideFlags: 0

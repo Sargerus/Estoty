@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace estoty_test
@@ -24,11 +23,6 @@ namespace estoty_test
                     continue;
 
                 var view = Instantiate(cc.View, Vector3.zero, Quaternion.identity);
-                var beh = cc.Behaviour.Behaviour;
-                beh.InitializeDataModules(cc.Data);
-
-                beh.SetView(view);
-                view.SetPresenter(beh);
             }
         }
     }

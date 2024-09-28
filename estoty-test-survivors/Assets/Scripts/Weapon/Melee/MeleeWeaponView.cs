@@ -7,8 +7,6 @@ namespace estoty_test
     {
         protected Animator _animator;
 
-        protected IMeleeWeaponAttackable _attackLink;
-
         protected virtual void Awake()
         {
             _animator = GetComponent<Animator>();
@@ -17,11 +15,6 @@ namespace estoty_test
         public virtual void Attack()
         {
             _animator.SetTrigger("attack");
-        }
-
-        public void SetAttackLink(IMeleeWeaponAttackable attackLink)
-        {
-            _attackLink = attackLink;
         }
     }
 }

@@ -96,9 +96,11 @@ GameObject:
   - component: {fileID: 3867391825275115503}
   - component: {fileID: 8186982234418204034}
   - component: {fileID: 435994117944570600}
+  - component: {fileID: 1439215885138955148}
   - component: {fileID: 5887701611230773566}
   - component: {fileID: 7964794448623221834}
   - component: {fileID: 779550745456524746}
+  - component: {fileID: 4123210308970206503}
   m_Layer: 6
   m_Name: DefaultPlayer
   m_TagString: Untagged
@@ -250,6 +252,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.47562623, y: 0.78233707}
   m_EdgeRadius: 0
+--- !u!114 &1439215885138955148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4015332962611355331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab1f9b8d2011e44a81a880a09dbad06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerView: {fileID: 5887701611230773566}
+  meleeParent: {fileID: 1226182371085834381}
+  meleeCenter: {fileID: 1226182371085834381}
 --- !u!114 &5887701611230773566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,9 +279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67550208e80ba7f428e1958cbeffed9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 1439215885138955148}
   showDebugMeleeRange: 1
-  _meleeWeaponCenter: {fileID: 1226182371085834381}
-  _rangeWeaponCenter: {fileID: 2138740503232137391}
   _playersAnimator: {fileID: 7964794448623221834}
 --- !u!114 &7964794448623221834
 MonoBehaviour:
@@ -300,6 +316,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4123210308970206503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4015332962611355331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ddc6f4e3be09f84e8cff96c2d4dcad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 149568805625890924}
+  Rb2d: {fileID: 8186982234418204034}
+  MovementData:
+    Acceleration: 8
+    MaxAcceleration: 4
+    Deceleration: 6
+  AnimatorController: {fileID: 7964794448623221834}
 --- !u!1 &4083611081388271509
 GameObject:
   m_ObjectHideFlags: 0

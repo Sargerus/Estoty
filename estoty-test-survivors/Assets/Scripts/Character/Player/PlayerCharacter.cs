@@ -1,77 +1,41 @@
-using System;
-using Zenject;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace estoty_test
 {
-    public interface IMeleeWeaponAttackable
+    public class PlayerCharacter : BaseCharacter
     {
-        bool CanMeleeAttack { get; }
-        void AttackMelee();
-        void HitMeleeTarget();
-    }
+        [SerializeField] private PlayerView playerView;
+        [SerializeField] private Transform meleeParent;
+        [SerializeField] private Transform meleeCenter;
 
-    public class PlayerCharacter : BaseCharacter, IMeleeWeaponAttackable
-    {
-        public MeleeWeaponData MeleeWeaponData;
+        private List<BaseComponent> _components = new();
 
-        private IWeaponService _weaponService;
+        public override BaseView View { get => playerView; protected set => View = value; }
 
-        private PlayerView _playerView;
-
-        public bool HasMeleeWeapon => MeleeWeaponData != null;
-        public bool CanMeleeAttack => MeleeWeaponData != null && MeleeWeaponData.CanMeleeAttack;
-
-        [Inject]
-        public void Construct(IWeaponService weaponService)
+        private void Awake()
         {
-            _weaponService = weaponService;
+            _components.AddRange(GetComponents<BaseComponent>());
         }
 
-        public override void SetView(BaseView view)
+        public void ReplaceMeleeWeapon(MeleeWeaponBonusScriptableObject meleeData)
         {
-            base.SetView(view);
-            _playerView = (PlayerView)view;
+            foreach (var melee in _components.OfType<MeleeWeaponComponent>())
+            {
+                melee.RemoveComponent();
+            }
+            
+            var meleeComponent = gameObject.AddComponent<MeleeWeaponComponent>();
+            meleeComponent.WeaponData = new MeleeWeaponData(meleeData.Data);
+            meleeComponent.CreateWeapon(meleeParent, meleeCenter);
         }
 
-        public void AttackMelee()
+        internal void ApplyBonus(BaseBonusScriptableObject bonusData)
         {
-            if (MeleeWeaponData.CanMeleeAttack)
+            if (bonusData is MeleeWeaponBonusScriptableObject meleeData)
             {
-                MeleeWeaponData.LastTimeAttacked = DateTime.UtcNow;
-                _playerView.PlayMeleeAttackAnimation();
-            }
-        }
-
-        public void HitMeleeTarget()
-        {
-        }
-
-        public void ReplaceWeapon(string id)
-        {
-            void EquipMeleeWeapon(MeleeWeaponItemConfigScriptableObject config)
-            {
-                MeleeWeaponData = new(config.Damage, config.AttackRadius, config.AttackRate, config.View, config.Id);
-                _playerView.EquipMeleeWeapon();
-            }
-
-            void EquipRangeWeapon(RangeWeaponItemConfigScriptableObject config)
-            {
-                //MeleeWeaponData = new(config.Damage, config.AttackRadius, config.AttackRate, config.View, config.Id);
-                //_playerView.EquipMeleeWeapon();
-            }
-
-            RangeWeaponItemConfigScriptableObject rangeConfig = null;
-            MeleeWeaponItemConfigScriptableObject meleeConfig = _weaponService.GetMeleeWeaponById(id);
-
-            if (meleeConfig != null)
-            {
-                EquipMeleeWeapon(meleeConfig);
-            }
-            else
-            {
-                rangeConfig = _weaponService.GetRangeWeaponById(id);
-                if (rangeConfig != null)
-                    EquipRangeWeapon(rangeConfig);
+                ReplaceMeleeWeapon(meleeData);
             }
         }
     }

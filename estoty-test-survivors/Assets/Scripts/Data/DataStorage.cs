@@ -1,5 +1,5 @@
 using System;
-using Unity.VisualScripting;
+using UnityEngine;
 
 namespace estoty_test
 {
@@ -62,24 +62,12 @@ namespace estoty_test
     public class MeleeWeaponData : BaseData
     {
         public string Id;
-        public float Damage;
-        public float AttackRadius;
         public float AttackRate;
+        public float AttackSpeed;
+        public float AttackRadius;
+        public float Damage;
+
         public MeleeWeaponView View;
-
-        [NonSerialized]
-        public DateTime LastTimeAttacked = DateTime.MinValue;
-
-        public bool CanMeleeAttack
-        {
-            get
-            {
-                DateTime nextTimeAttack = LastTimeAttacked.AddSeconds(1 / AttackRate);
-                TimeSpan ts = DateTime.UtcNow - nextTimeAttack;
-
-                return ts.TotalMilliseconds >= 0;
-            }
-        }
 
         public MeleeWeaponData(float damage, float radius, float attackRate, MeleeWeaponView view, string id)
         {
@@ -102,4 +90,7 @@ namespace estoty_test
             View = mwd.View;
         }
     }
+
+    [Serializable]
+    public class CanPickUpData : BaseData { }
 }
