@@ -24,7 +24,7 @@ namespace estoty_test
             AnimatorController.SetMoveSpeed(_moveVelocity.sqrMagnitude / MovementData.MaxAcceleration);
         }
 
-        public override void RemoveComponent()
+        public override void Dispose()
         {
             Destroy(this);
         }

@@ -21,7 +21,7 @@ namespace estoty_test
             }
         }
 
-        public override void RemoveComponent()
+        public override void Dispose()
         {
             Destroy(this);
         }

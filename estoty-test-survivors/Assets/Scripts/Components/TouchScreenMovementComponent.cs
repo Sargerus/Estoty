@@ -41,7 +41,7 @@ namespace estoty_test
             _moveInput = new Vector3(SimpleInput.GetAxis(horizontalAxis), SimpleInput.GetAxis(verticalAxis));
         }
 
-        public override void RemoveComponent()
+        public override void Dispose()
         {
             Destroy(this);
         }

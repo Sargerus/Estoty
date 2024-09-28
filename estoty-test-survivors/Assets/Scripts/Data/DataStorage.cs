@@ -60,18 +60,13 @@ namespace estoty_test
     [Serializable]
     public class MeleeWeaponData : BaseData
     {
-        public string Id;
         public float AttackRate;
-        public float AttackSpeed;
-        public float AttackRadius;
         public float Damage;
 
-        public MeleeWeaponData(float damage, float radius, float attackRate, string id)
+        public MeleeWeaponData(float damage, float attackRate)
         {
             Damage = damage;
-            AttackRadius = radius;
             AttackRate = attackRate;
-            Id = id;
         }
 
         public MeleeWeaponData(MeleeWeaponData other)
@@ -79,10 +74,39 @@ namespace estoty_test
             if (other is not MeleeWeaponData mwd)
                 return;
 
-            Id = mwd.Id;
             Damage = mwd.Damage;
-            AttackRadius = mwd.AttackRadius;
             AttackRate = mwd.AttackRate;
+        }
+    }
+
+    [Serializable]
+    public class RangeWeaponData : BaseData
+    {
+        public float AttackRate;
+        public float Damage;
+        public float BulletVelocity;
+        public float BulletMaxDistance;
+        public BulletView BulletView;
+
+        public RangeWeaponData(float damage, float attackRate, BulletView bulletView, float bulletVelocity, float bulletMaxDistance)
+        {
+            Damage = damage;
+            AttackRate = attackRate;
+            BulletView = bulletView;
+            BulletVelocity = bulletVelocity;
+            BulletMaxDistance = bulletMaxDistance;
+        }
+
+        public RangeWeaponData(RangeWeaponData other)
+        {
+            if (other is not RangeWeaponData mwd)
+                return;
+
+            Damage = mwd.Damage;
+            AttackRate = mwd.AttackRate;
+            BulletView = mwd.BulletView;
+            BulletVelocity = mwd.BulletVelocity;
+            BulletMaxDistance= mwd.BulletMaxDistance;
         }
     }
 

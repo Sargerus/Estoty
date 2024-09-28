@@ -22,7 +22,7 @@ namespace estoty_test
             _healthComponent.AddHealth(-damage);
         }
 
-        public override void RemoveComponent()
+        public override void Dispose()
         {
             Destroy(this);
         }
