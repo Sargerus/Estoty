@@ -11,6 +11,6 @@ namespace estoty_test
         public float AttackRadius;
         public float Damage;
 
-        public MeleeWeaponView View;
+        public WeaponView View;
     }
 }

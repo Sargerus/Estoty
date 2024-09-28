@@ -11,6 +11,6 @@ namespace estoty_test
         public float Damage;
         public float BulletType;
 
-        public MeleeWeaponView View;
+        public WeaponView View;
     }
 }

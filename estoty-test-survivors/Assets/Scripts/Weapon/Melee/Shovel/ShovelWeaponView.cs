@@ -1,11 +1,26 @@
+using System;
 using UnityEngine;
 
 namespace estoty_test
 {
-    public sealed class ShovelWeaponView : MeleeWeaponView
+    public sealed class ShovelWeaponView : WeaponView
     {
-        [SerializeField] private BaseEnemyInRangeCheck enemyInRangeCheck;
         [SerializeField] private ShovelDamageCheck shovelDamageCheck;
+
+        public MeleeWeaponData WeaponData;
+
+        private DateTime _lastTimeAttacked = DateTime.MinValue;
+
+        protected override bool CanAttack
+        {
+            get
+            {
+                DateTime nextTimeAttack = _lastTimeAttacked.AddSeconds(1 / WeaponData.AttackRate);
+                TimeSpan ts = DateTime.UtcNow - nextTimeAttack;
+
+                return ts.TotalMilliseconds >= 0;
+            }
+        }
 
         protected override void Awake()
         {
@@ -15,32 +30,30 @@ namespace estoty_test
 
         private void Update()
         {
-            if (!CanMeleeAttack)
+            if (!IsEnemyInRange())
                 return;
 
-            if (!IsEnemyInRange())
+            if (!CanAttack)
                 return;
 
             Attack();
         }
 
+        public override void Attack()
+        {
+            base.Attack();
+            _lastTimeAttacked = DateTime.UtcNow;
+        }
+
         private void OnDamage(DamagableComponent component)
         {
             component.TakeDamage(WeaponData.Damage);
-            OnAttack?.Invoke(component);
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
+            base.OnDestroy();
             shovelDamageCheck.OnDamage -= OnDamage;
-        }
-
-        private bool IsEnemyInRange()
-        {
-            bool result = enemyInRangeCheck.IsEnemyInRange(out var damagableComponent);
-            CurrentTarget = damagableComponent;
-
-            return result;
         }
     }
 }
