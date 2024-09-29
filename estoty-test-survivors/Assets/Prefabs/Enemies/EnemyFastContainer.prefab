@@ -304,6 +304,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5303260824135910676}
     - target: {fileID: 3874159717880181442, guid: af9a71043bb460249a1e361791507ae4, type: 3}
+      propertyPath: WeaponData.Damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874159717880181442, guid: af9a71043bb460249a1e361791507ae4, type: 3}
       propertyPath: WeaponData.AttackRate
       value: 0.5
       objectReference: {fileID: 0}

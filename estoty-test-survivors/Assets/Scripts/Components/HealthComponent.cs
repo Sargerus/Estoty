@@ -5,11 +5,15 @@ namespace estoty_test
     public class HealthComponent : BaseComponent
     {
         public HealthData HealthData;
-        public event Action OnDeath;
+        public Action OnDeath;
+        public Action<float, float> OnHpChanged; //previous value, current value
 
         public void AddHealth(float value)
         {
+            float hpNow = HealthData.CurrentHP;
+
             HealthData.CurrentHP += value;
+            OnHpChanged?.Invoke(hpNow, HealthData.CurrentHP);
             CheckHP();
         }
 
