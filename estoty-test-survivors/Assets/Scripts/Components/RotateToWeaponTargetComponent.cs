@@ -6,14 +6,16 @@ namespace estoty_test
     public class RotateToWeaponTargetComponent : BaseComponent
     {
         public Transform Target;
-        public BaseWeaponComponent WeaponComponent;
+        public HolsterComponent HolsterComponent;
         public Rigidbody2D Rigidbody;
+
+        private DamagableComponent CurrentTarget => HolsterComponent.CurrentWeapon.CurrentTarget;
 
         private IEnumerator Rotate()
         {
             while (true)
             {
-                if (Target == null)
+                if (Target == null || HolsterComponent == null)
                 {
                     yield return null;
                     continue;
@@ -21,9 +23,9 @@ namespace estoty_test
 
                 Quaternion rotation = Target.rotation;
 
-                if (WeaponComponent != null && WeaponComponent.CurrentTarget != null)
+                if (HolsterComponent.CurrentWeapon != null && CurrentTarget != null)
                 {
-                    Vector2 dir = (WeaponComponent.CurrentTarget.transform.position - Target.position).normalized;
+                    Vector2 dir = (CurrentTarget.transform.position - Target.position).normalized;
 
                     if (dir.x < 0)
                         rotation = Quaternion.Euler(0, -180, 0);

@@ -3,30 +3,31 @@ using UnityEngine;
 
 namespace estoty_test
 {
-    [RequireComponent(typeof(Collider2D))]
-    public class ShovelInRangeCheck : BaseEnemyInRangeCheck
+    public class ColliderInRangeCheck : BaseComponent
     {
-        [SerializeField] private List<Collider2D> _colliders;
+        public LayerMask TargetLayerMask;
+
+        [Space(20)]
+        public List<Collider2D> _colliders;
+
         private List<Collider2D> _overlapResult = new();
 
-        private void Update()
-        {
-            transform.rotation = Quaternion.identity;
-        }
-
-        public override bool IsEnemyInRange(out DamagableComponent damagableComponent)
+        public bool IsEnemyInRange(out DamagableComponent damagableComponent)
         {
             damagableComponent = null;
 
-            ContactFilter2D filter = new();
-            filter.NoFilter();
+            ContactFilter2D filter = new()
+            {
+                useTriggers = true
+            };
+            filter.SetLayerMask(TargetLayerMask);
             List<DamagableComponent> dc = new();
 
             foreach (var collider in _colliders)
             {
-                collider.OverlapCollider(filter, _overlapResult);
+               int count =  Physics2D.OverlapCollider(collider, filter, _overlapResult);
 
-                if (_overlapResult.Count <= 0)
+                if (count <= 0)
                     continue;
 
                 foreach (var res in _overlapResult)
@@ -49,6 +50,11 @@ namespace estoty_test
             }
 
             return damagableComponent != null;
+        }
+
+        public override void Dispose()
+        {
+            Destroy(gameObject);
         }
     }
 }

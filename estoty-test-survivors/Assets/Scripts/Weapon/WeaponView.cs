@@ -6,12 +6,13 @@ namespace estoty_test
     [RequireComponent(typeof(Animator))]
     public abstract class WeaponView : MonoBehaviour
     {
-        [SerializeField] protected BaseEnemyInRangeCheck enemyInRangeCheck;
-
-        protected Animator _animator;
-
         public DamagableComponent CurrentTarget;
         public Transform ColliderParent;
+
+        [Space(20)]
+        public ColliderInRangeCheck EnemyInRangeCheck;
+
+        protected Animator _animator;
 
         protected abstract bool CanAttack { get; }
 
@@ -22,7 +23,7 @@ namespace estoty_test
 
         private void Start()
         {
-            enemyInRangeCheck.transform.SetParent(ColliderParent);
+            EnemyInRangeCheck.transform.SetParent(ColliderParent);
         }
 
         public virtual void Attack()
@@ -32,7 +33,10 @@ namespace estoty_test
 
         protected virtual bool IsEnemyInRange()
         {
-            bool result = enemyInRangeCheck.IsEnemyInRange(out var damagableComponent);
+            if (EnemyInRangeCheck == null)
+                return false;
+
+            bool result = EnemyInRangeCheck.IsEnemyInRange(out var damagableComponent);
             CurrentTarget = damagableComponent;
 
             return result;
@@ -40,7 +44,7 @@ namespace estoty_test
 
         protected virtual void OnDestroy()
         {
-            Destroy(enemyInRangeCheck.gameObject);
+            Destroy(EnemyInRangeCheck.gameObject);
         }
     }
 }

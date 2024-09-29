@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d62f256189d474e9796e516978911b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   _colliders:
   - {fileID: 2151938393676739072}
   - {fileID: 8542306879875918154}
@@ -207,9 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b89a2ac3fbf29344cae45d39a8fda927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInRangeCheck: {fileID: 4783143927859352665}
   CurrentTarget: {fileID: 0}
   ColliderParent: {fileID: 0}
+  EnemyInRangeCheck: {fileID: 4783143927859352665}
   shovelDamageCheck: {fileID: 5162003947254526753}
   WeaponData:
     AttackRate: 1
