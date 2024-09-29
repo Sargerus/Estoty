@@ -1,14 +1,14 @@
 using System;
-using UnityEngine;
+using System.Collections.Generic;
 
 namespace estoty_test
 {
     public sealed class ShovelWeaponView : WeaponView
     {
-        [SerializeField] private ShovelDamageCheck shovelDamageCheck;
-
+        public Collider2DOnTriggerEnter2DCheck CollideCheck;
         public MeleeWeaponData WeaponData;
 
+        private HashSet<DamagableComponent> _wasDamagedThisRound = new();
         private DateTime _lastTimeAttacked = DateTime.MinValue;
 
         protected override bool CanAttack
@@ -25,7 +25,8 @@ namespace estoty_test
         protected override void Awake()
         {
             base.Awake();
-            shovelDamageCheck.OnDamage += OnDamage;
+            CollideCheck.EnableComponent(false);
+            CollideCheck.OnDamage += OnDamage;
         }
 
         private void Update()
@@ -41,19 +42,36 @@ namespace estoty_test
 
         public override void Attack()
         {
+            _wasDamagedThisRound.Clear();
             base.Attack();
+            CollideCheck.EnableComponent(true);
             _lastTimeAttacked = DateTime.UtcNow;
         }
 
         private void OnDamage(DamagableComponent component)
         {
+            if (_wasDamagedThisRound.Contains(component))
+                return;
+
             component.TakeDamage(WeaponData.Damage);
+            _wasDamagedThisRound.Add(component);
+        }
+
+        //called for attack animation
+        public void HalfAnimationPassed()
+        {
+            _wasDamagedThisRound.Clear();
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
-            shovelDamageCheck.OnDamage -= OnDamage;
+
+            if(CollideCheck != null)
+            {
+                CollideCheck.OnDamage -= OnDamage;
+                CollideCheck.Dispose();
+            }
         }
     }
 }
