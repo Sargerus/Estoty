@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8201985165113424798}
   - component: {fileID: 7361443602723413664}
-  - component: {fileID: 8280375291103935909}
+  - component: {fileID: 7248863607729710140}
   m_Layer: 7
-  m_Name: Bonus_WeaponShovel
+  m_Name: Bonus_Experience
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.20037454, y: 0.004887253}
+  m_Offset: {x: 0.0015566647, y: -0.00012779236}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -77,9 +77,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0097743, y: 0.2786517}
+  m_Size: {x: 0.50487345, y: 0.5310217}
   m_EdgeRadius: 0
---- !u!114 &8280375291103935909
+--- !u!114 &7248863607729710140
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,10 +88,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2513008063628731094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 899f269695fa09a4dab3ad10817cc12c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a93ce99fc82b614e9d7e6ee304631f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  View: {fileID: 8671188869857972360, guid: 6bc477b91e052294f8747a49eae8b88f, type: 3}
 --- !u!1 &7414333146760380526
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +164,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 143021600, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+  m_Sprite: {fileID: 362616440, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

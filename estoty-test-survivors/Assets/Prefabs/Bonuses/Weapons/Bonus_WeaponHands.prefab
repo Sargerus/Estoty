@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8201985165113424798}
-  - component: {fileID: 5627131144679401567}
   - component: {fileID: 7361443602723413664}
+  - component: {fileID: 8565851544315513189}
   m_Layer: 7
   m_Name: Bonus_WeaponHands
   m_TagString: Untagged
@@ -34,19 +34,6 @@ Transform:
   - {fileID: 4090991552542098601}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5627131144679401567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2513008063628731094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 797265800beeda344b52dfbfe17eadf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BonusData: {fileID: 11400000, guid: 9fadca65fb86d1a4b8f87d03b608234c, type: 2}
 --- !u!61 &7361443602723413664
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -92,6 +79,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.59184515, y: 0.5991496}
   m_EdgeRadius: 0
+--- !u!114 &8565851544315513189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2513008063628731094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899f269695fa09a4dab3ad10817cc12c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  View: {fileID: 6405478812055729671, guid: d462a1a742afd794095e673366d50f18, type: 3}
 --- !u!1 &7414333146760380526
 GameObject:
   m_ObjectHideFlags: 0

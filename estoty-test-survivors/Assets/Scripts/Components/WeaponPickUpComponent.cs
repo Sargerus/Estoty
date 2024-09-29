@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace estoty_test
@@ -9,29 +6,45 @@ namespace estoty_test
     public class WeaponPickUpComponent : BaseComponent
     {
         public HolsterComponent Holster;
+        public ExperienceComponent Experience;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.TryGetComponent(out BonusBehaviour bb))
+            var bonuses = collision.GetComponents<BaseBonusComponent>();
+
+            foreach (var bonus in bonuses)
             {
-                if (TryApplyBonus(bb.BonusData))
-                    Destroy(collision.gameObject);
+                if (bonus is WeaponBonusComponent wbc)
+                    if (TryEquipWeaponBonus(wbc))
+                        Destroy(collision.gameObject);
+
+                if (bonus is ExperienceBonusComponent ebc)
+                    if (TryAddExperience(ebc))
+                        Destroy(collision.gameObject);
             }
         }
 
-        private bool TryApplyBonus(BaseBonusScriptableObject bonusData)
+        private bool TryEquipWeaponBonus(WeaponBonusComponent wbc)
         {
-            if (bonusData is WeaponBonusScriptableObject weaponData)
-            {
-                if(Holster == null)
-                {
-                    return false;
-                }
+            if (Holster == null)
+                return false;
 
-                Holster.ReplaceWeapon(weaponData);
+            Holster.ReplaceWeapon(wbc.View);
+            return true;
+        }
+
+        public bool TryAddExperience(ExperienceBonusComponent ebc)
+        {
+            if (Experience == null)
+                return false;
+
+            if (ebc.TryGetComponent<CountComponent>(out var cc))
+            {
+                Experience.AddExperience(cc.Count);
+                return true;
             }
 
-            return true;
+            return false;
         }
 
         public override void Dispose()
