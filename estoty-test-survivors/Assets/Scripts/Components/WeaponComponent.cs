@@ -10,10 +10,9 @@ namespace estoty_test
             Transform weaponPosition, Transform weaponColliderParent, int layerForWeaponGO, LayerMask targetLayerMask)
         {
             View = Instantiate(weaponPrefab, weaponPosition.position, weaponPrefab.transform.localRotation, weaponParent);
+            View.SetupWeapon(layerForWeaponGO, targetLayerMask);
             View.transform.localRotation = weaponPrefab.transform.localRotation;
             View.ColliderParent = weaponColliderParent;
-            View.gameObject.layer = layerForWeaponGO;
-            View.EnemyInRangeCheck.TargetLayerMask = targetLayerMask;
         }
 
         private void Update()

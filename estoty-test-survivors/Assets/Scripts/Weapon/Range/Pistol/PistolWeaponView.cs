@@ -50,7 +50,8 @@ namespace estoty_test
             var bullet = Instantiate(WeaponData.BulletView, bulletSpawn.position, Quaternion.identity);
             bullet.Setup(WeaponData.Damage, 
                 (CurrentTarget.transform.position - bulletSpawn.transform.position).normalized * WeaponData.BulletVelocity, 
-                WeaponData.BulletMaxDistance);
+                WeaponData.BulletMaxDistance, EnemyInRangeCheck.TargetLayerMask);
+            bullet.gameObject.layer = gameObject.layer;
             bullet.Fly();
 
             _lastTimeAttacked = DateTime.UtcNow;

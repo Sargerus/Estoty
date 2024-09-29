@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc524222d36720b47a3f5c57b8036292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyInRangeCheck: {fileID: 7025070434903149542}
   CurrentTarget: {fileID: 0}
   ColliderParent: {fileID: 0}
+  EnemyInRangeCheck: {fileID: 7025070434903149542}
   bulletSpawn: {fileID: 7733777213601318855}
   WeaponData:
     AttackRate: 1
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 3923098503552992113}
   - component: {fileID: 7025070434903149542}
   - component: {fileID: 3017657176551911024}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: enemyInRangeCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

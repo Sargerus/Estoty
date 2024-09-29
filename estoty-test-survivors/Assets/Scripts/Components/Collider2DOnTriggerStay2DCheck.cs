@@ -9,8 +9,13 @@ namespace estoty_test
         public Collider2D Collider;
         public Action<DamagableComponent> OnDamage;
 
+        public LayerMask TargetLayerMask;
+
         private void OnTriggerStay2D(Collider2D collision)
         {
+            if ((TargetLayerMask & (1 << collision.gameObject.layer)) == 0)
+                return;
+
             if (!collision.TryGetComponent<DamagableComponent>(out var dComponent))
                 return;
 

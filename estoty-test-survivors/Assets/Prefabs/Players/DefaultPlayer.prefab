@@ -17,6 +17,9 @@ GameObject:
   - component: {fileID: 779550745456524746}
   - component: {fileID: 4123210308970206503}
   - component: {fileID: 3130332287904949854}
+  - component: {fileID: 5104706428562880421}
+  - component: {fileID: 1488103129432789474}
+  - component: {fileID: 8662691888188664285}
   m_Layer: 6
   m_Name: DefaultPlayer
   m_TagString: Untagged
@@ -101,7 +104,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4015332962611355331}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -249,8 +252,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 149568805625890924}
-  WeaponComponent: {fileID: 0}
+  HolsterComponent: {fileID: 5104706428562880421}
   Rigidbody: {fileID: 8186982234418204034}
+--- !u!114 &5104706428562880421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4015332962611355331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a44560c27d93f46b0aabe7a47913f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentWeapon: {fileID: 0}
+  WeaponParent: {fileID: 4267330926553724817}
+  WeaponCenter: {fileID: 4267330926553724817}
+  WeaponColliderParent: {fileID: 0}
+  LayerForGameObject: 9
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!114 &1488103129432789474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4015332962611355331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc17a96c2475c142979a5e8805bd5a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterAnimatorController: {fileID: 7959942052238809305}
+--- !u!114 &8662691888188664285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4015332962611355331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca31609ab70ade4096723786355c6f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthData:
+    MaxHP: 100
+    CurrentHP: 100
+    AdditionalHP: 0
 --- !u!1 &4083611081388271509
 GameObject:
   m_ObjectHideFlags: 0

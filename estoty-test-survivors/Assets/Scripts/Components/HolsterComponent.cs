@@ -22,6 +22,7 @@ namespace estoty_test
             _currentWeaponComponent = gameObject.AddComponent<WeaponComponent>();
             _currentWeaponComponent.CreateWeapon(meleeData.View, WeaponParent, WeaponCenter,
                 WeaponColliderParent, LayerForGameObject, TargetLayerMask);
+            CurrentWeapon = _currentWeaponComponent.View;
         }
 
         private void DropAllWeapon()

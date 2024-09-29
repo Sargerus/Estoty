@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace estoty_test
@@ -29,6 +28,24 @@ namespace estoty_test
         public virtual void Attack()
         {
             _animator.SetTrigger("attack");
+        }
+
+        public virtual void SetupWeapon(int layerGo, LayerMask enemyLayerMask)
+        {
+            SetLayerRecursively(gameObject, layerGo);
+
+            if (EnemyInRangeCheck != null)
+                EnemyInRangeCheck.TargetLayerMask = enemyLayerMask;
+        }
+
+        private void SetLayerRecursively(GameObject go, int layer)
+        {
+            go.layer = layer;
+
+            foreach (Transform child in go.transform)
+            {
+                SetLayerRecursively(child.gameObject, layer);
+            }
         }
 
         protected virtual bool IsEnemyInRange()

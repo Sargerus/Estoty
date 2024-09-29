@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace estoty_test
 {
@@ -38,6 +39,12 @@ namespace estoty_test
                 return;
 
             Attack();
+        }
+
+        public override void SetupWeapon(int layerGo, LayerMask enemyLayerMask)
+        {
+            base.SetupWeapon(layerGo, enemyLayerMask);
+            CollideCheck.TargetLayerMask = enemyLayerMask;
         }
 
         public override void Attack()
