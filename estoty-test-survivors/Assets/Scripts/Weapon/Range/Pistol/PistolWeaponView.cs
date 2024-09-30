@@ -39,7 +39,6 @@ namespace estoty_test
         {
             Vector3 direction = CurrentTarget.transform.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - (direction.x < 0 ? 180 : 0);
-            Debug.Log(angle);
             transform.localRotation = Quaternion.AngleAxis(angle, (direction.x < 0 ? -1 : 1) * Vector3.forward);
         }
 

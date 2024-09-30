@@ -371,10 +371,12 @@ MonoBehaviour:
   HealthComponent: {fileID: 6302309619601634953}
   UniqueDrop: []
   StackDrop:
-  - BonusView: {fileID: 7248863607729710140, guid: 0c5cb811759408543b1d1cd989ebb58b, type: 3}
+  - BonusKey: experience
+    BonusView: {fileID: 7248863607729710140, guid: 0c5cb811759408543b1d1cd989ebb58b, type: 3}
     StacksCount: 5
     BonusCount: 100
   DropRadius: 2
+  UsePool: 1
 --- !u!114 &5131969412962112408
 MonoBehaviour:
   m_ObjectHideFlags: 0

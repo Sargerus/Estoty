@@ -9,7 +9,7 @@ namespace estoty_test
         private ICountDeadMonstersService _countDeadMostersService;
 
         [Inject]
-        private void Construct(ICountDeadMonstersService countDeadMostersService)
+        private void Construct([InjectOptional]ICountDeadMonstersService countDeadMostersService)
         {
             _countDeadMostersService = countDeadMostersService;
         }
@@ -50,7 +50,12 @@ namespace estoty_test
 
         public int GetKillCounter()
         {
-            return _countDeadMostersService.DeadCount;
+            int result = 0;
+
+            if (_countDeadMostersService != null)
+                result = _countDeadMostersService.DeadCount;
+
+            return result;
         }
 
         private void Start()
@@ -58,7 +63,11 @@ namespace estoty_test
             HealthComponent.OnHpChanged += OnHpChanged;
             ExperienceComponent.OnExperienceChanged += OnExperienceChanged;
             ExperienceComponent.OnNewLevel += OnNewLevel;
-            _countDeadMostersService.OnCountChanged += OnKillCounterChanged;
+
+            if (_countDeadMostersService != null)
+            {
+                _countDeadMostersService.OnCountChanged += OnKillCounterChanged;
+            }
         }
 
         private void OnDestroy()
@@ -66,6 +75,11 @@ namespace estoty_test
             HealthComponent.OnHpChanged -= OnHpChanged;
             ExperienceComponent.OnExperienceChanged -= OnExperienceChanged;
             ExperienceComponent.OnNewLevel -= OnNewLevel;
+
+            if( _countDeadMostersService != null )
+            {
+                _countDeadMostersService.OnCountChanged -= OnKillCounterChanged;
+            }
         }
     }
 }
