@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Levels:
   - ExperienceRequired: 0
-  - ExperienceRequired: 100
-  - ExperienceRequired: 200
   - ExperienceRequired: 300
+  - ExperienceRequired: 600
+  - ExperienceRequired: 900
+  - ExperienceRequired: 1200
+  - ExperienceRequired: 1500

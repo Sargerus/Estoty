@@ -428,9 +428,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
-    Acceleration: 2
-    MaxAcceleration: 2
-    Deceleration: 2
+    Acceleration: 1
+    MaxAcceleration: 1
+    Deceleration: 1
 --- !u!1 &4193115112405175816
 GameObject:
   m_ObjectHideFlags: 0
