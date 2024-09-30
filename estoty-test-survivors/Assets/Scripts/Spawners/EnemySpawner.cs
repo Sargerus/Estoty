@@ -57,14 +57,18 @@ namespace estoty_test
         private IEnumerator ProcessPool(EnemiesPool pool, float spawmRate)
         {
             WaitForSeconds wfs = new(spawmRate);
+            Vector3 spawnPos = Vector3.zero;
 
             while (gameObject != null)
             {
-                Vector3 spawnPos = _levelMapService.GetSpawnPosition();
+                while (!_levelMapService.TryGetSpawnPosition(out spawnPos))
+                    yield return null;
+
                 var newEnemy = pool.Get();
 
                 //add chase transform
 
+                newEnemy.Item.gameObject.transform.position = spawnPos;
                 newEnemy.Item.gameObject.SetActive(true);
                 yield return wfs;
             }
