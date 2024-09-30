@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsFollow: 1
-  Target: {fileID: 0}
+  Target: {fileID: 2468392289773114253}
 --- !u!1 &6920728559779408004
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,11 +256,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1025265643188590205, guid: 354193c4f67d44c409b1400bae74d9c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.74
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1025265643188590205, guid: 354193c4f67d44c409b1400bae74d9c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.51
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1025265643188590205, guid: 354193c4f67d44c409b1400bae74d9c9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -294,6 +294,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1423180779411858980, guid: 354193c4f67d44c409b1400bae74d9c9, type: 3}
+      propertyPath: TargetLayerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592264995458471311, guid: 354193c4f67d44c409b1400bae74d9c9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596070918018158617, guid: 354193c4f67d44c409b1400bae74d9c9, type: 3}
+      propertyPath: TargetLayerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 3667478001229674951, guid: 354193c4f67d44c409b1400bae74d9c9, type: 3}
       propertyPath: m_Name
       value: EnemyBig
@@ -306,14 +318,6 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 2468392289773114253}
-    - target: {fileID: 6302309619601634953, guid: 354193c4f67d44c409b1400bae74d9c9, type: 3}
-      propertyPath: HealthData.MaxHP
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6302309619601634953, guid: 354193c4f67d44c409b1400bae74d9c9, type: 3}
-      propertyPath: HealthData.CurrentHP
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 7938656297171859238, guid: 354193c4f67d44c409b1400bae74d9c9, type: 3}
       propertyPath: CurrentWeapon
       value: 
@@ -322,6 +326,14 @@ PrefabInstance:
       propertyPath: WeaponColliderParent
       value: 
       objectReference: {fileID: 4253139605490253466}
+    - target: {fileID: 8450003010315387303, guid: 354193c4f67d44c409b1400bae74d9c9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112822943239210607, guid: 354193c4f67d44c409b1400bae74d9c9, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

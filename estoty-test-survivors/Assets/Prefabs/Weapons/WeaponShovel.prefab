@@ -216,7 +216,7 @@ MonoBehaviour:
   CollideCheck: {fileID: 8834797933603991036}
   WeaponData:
     AttackRate: 1
-    Damage: 0
+    Damage: 8
 --- !u!1 &5016921984506073551
 GameObject:
   m_ObjectHideFlags: 0

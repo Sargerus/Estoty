@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace estoty_test
@@ -19,7 +20,10 @@ namespace estoty_test
         {
             if (character.TryGetComponent<HealthComponent>(out _healthComponent))
             {
-                _healthComponent.OnDeath += ReturnToPool;
+                if (Pool == null)
+                    _healthComponent.OnDeath += DestroyEnemy;
+                else
+                    _healthComponent.OnDeath += ReturnToPool;
             }
         }
 
@@ -40,8 +44,15 @@ namespace estoty_test
             Pool.Add(Item);
         }
 
+        private void DestroyEnemy()
+        {
+            Destroy(gameObject);
+        }
+
         private void OnDestroy()
         {
+            _healthComponent.OnDeath -= DestroyEnemy;
+
             if (_healthComponent != null)
                 _healthComponent.OnDeath -= ReturnToPool;
         }

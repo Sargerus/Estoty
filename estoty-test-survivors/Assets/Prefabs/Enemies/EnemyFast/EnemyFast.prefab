@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 7307912627450656675}
   - component: {fileID: 3615073934344094758}
   - component: {fileID: 7145707067782347472}
+  - component: {fileID: 7542834342246756540}
   m_Layer: 10
   m_Name: EnemyFast
   m_TagString: Untagged
@@ -273,8 +274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthData:
-    MaxHP: 5
-    CurrentHP: 5
+    MaxHP: 6
+    CurrentHP: 6
     AdditionalHP: 0
 --- !u!61 &5521873288127882442
 BoxCollider2D:
@@ -374,10 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   Rigidbody2D: {fileID: 3188574884967623820}
-  MovementData:
-    Acceleration: 4
-    MaxAcceleration: 4
-    Deceleration: 4
+  MovementComponent: {fileID: 7542834342246756540}
   AnimatorController: {fileID: 5697664124265520516}
 --- !u!114 &7307912627450656675
 MonoBehaviour:
@@ -433,6 +431,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthComponent: {fileID: 6644888843871909388}
+--- !u!114 &7542834342246756540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4153534676428634434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dfca3d6a50c93c4aaf6ab9b2c688a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    Acceleration: 4
+    MaxAcceleration: 4
+    Deceleration: 4
 --- !u!1 &6309750169200561856
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,9 +487,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3672453769044791465}
     m_Modifications:
+    - target: {fileID: 1378748301565412839, guid: d462a1a742afd794095e673366d50f18, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1734304353208222255, guid: d462a1a742afd794095e673366d50f18, type: 3}
       propertyPath: m_Name
       value: WeaponHands
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734304353208222255, guid: d462a1a742afd794095e673366d50f18, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783143927859352665, guid: d462a1a742afd794095e673366d50f18, type: 3}
+      propertyPath: TargetLayerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016921984506073551, guid: d462a1a742afd794095e673366d50f18, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5288302366809342616, guid: d462a1a742afd794095e673366d50f18, type: 3}
       propertyPath: m_LocalPosition.x
@@ -516,6 +546,18 @@ PrefabInstance:
     - target: {fileID: 5288302366809342616, guid: d462a1a742afd794095e673366d50f18, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6405478812055729671, guid: d462a1a742afd794095e673366d50f18, type: 3}
+      propertyPath: WeaponData.Damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6405478812055729671, guid: d462a1a742afd794095e673366d50f18, type: 3}
+      propertyPath: WeaponData.AttackRate
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477493934404117092, guid: d462a1a742afd794095e673366d50f18, type: 3}
+      propertyPath: TargetLayerMask.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

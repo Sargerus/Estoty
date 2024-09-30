@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level1PoolSettings
   m_EditorClassIdentifier: 
   Pools:
-  - Prefab: {fileID: 7020496371220184798, guid: 24fb3b2f60b89a041ade9a339a27fe0b, type: 3}
-    SpawnTimer: 2
   - Prefab: {fileID: 1437501708879430992, guid: e1b8c20edc5499049b5a5e4fc6770b59, type: 3}
-    SpawnTimer: 2
+    SpawnTimer: 3
+  - Prefab: {fileID: 7020496371220184798, guid: 24fb3b2f60b89a041ade9a339a27fe0b, type: 3}
+    SpawnTimer: 1.5

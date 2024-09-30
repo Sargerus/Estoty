@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 5131969412962112408}
   - component: {fileID: 108465676248717614}
   - component: {fileID: 47805190451163256}
+  - component: {fileID: 2532034157124593951}
   m_Layer: 10
   m_Name: EnemyBig
   m_TagString: Untagged
@@ -242,8 +243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthData:
-    MaxHP: 5
-    CurrentHP: 5
+    MaxHP: 11
+    CurrentHP: 11
     AdditionalHP: 0
 --- !u!61 &5179294020169737295
 BoxCollider2D:
@@ -331,10 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   Rigidbody2D: {fileID: 2810591351654788105}
-  MovementData:
-    Acceleration: 2
-    MaxAcceleration: 2
-    Deceleration: 2
+  MovementComponent: {fileID: 2532034157124593951}
   AnimatorController: {fileID: 4923284671053454593}
 --- !u!114 &7938656297171859238
 MonoBehaviour:
@@ -417,6 +415,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthComponent: {fileID: 6302309619601634953}
+--- !u!114 &2532034157124593951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3667478001229674951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dfca3d6a50c93c4aaf6ab9b2c688a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    Acceleration: 2
+    MaxAcceleration: 2
+    Deceleration: 2
 --- !u!1 &4193115112405175816
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +546,14 @@ PrefabInstance:
     - target: {fileID: 5288302366809342616, guid: d462a1a742afd794095e673366d50f18, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6405478812055729671, guid: d462a1a742afd794095e673366d50f18, type: 3}
+      propertyPath: WeaponData.Damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6405478812055729671, guid: d462a1a742afd794095e673366d50f18, type: 3}
+      propertyPath: WeaponData.AttackRate
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
