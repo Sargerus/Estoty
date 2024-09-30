@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 5104706428562880421}
   - component: {fileID: 1488103129432789474}
   - component: {fileID: 8662691888188664285}
+  - component: {fileID: 3754848646954369436}
   m_Layer: 6
   m_Name: DefaultPlayer
   m_TagString: Untagged
@@ -180,12 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab1f9b8d2011e44a81a880a09dbad06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponParent: {fileID: 4267330926553724817}
-  weaponCenter: {fileID: 4267330926553724817}
-  weaponColliderParent: {fileID: 0}
-  playerBody: {fileID: 0}
-  rotateToWeaponTargetComponent: {fileID: 3130332287904949854}
-  _playersAnimator: {fileID: 7959942052238809305}
+  HealthComponent: {fileID: 8662691888188664285}
+  ExperienceComponent: {fileID: 3754848646954369436}
 --- !u!114 &7959942052238809305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,6 +300,20 @@ MonoBehaviour:
     MaxHP: 100
     CurrentHP: 100
     AdditionalHP: 0
+--- !u!114 &3754848646954369436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4015332962611355331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8aa0d466fb1cf4db033db56304a6e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelsConfig: {fileID: 11400000, guid: 8d967d61974e6f94dbf009515dfd88f1, type: 2}
+  CurrentExperience: 0
 --- !u!1 &4083611081388271509
 GameObject:
   m_ObjectHideFlags: 0

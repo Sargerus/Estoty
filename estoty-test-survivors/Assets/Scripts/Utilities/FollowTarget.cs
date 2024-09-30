@@ -9,7 +9,7 @@ namespace estoty_test
 
         private void LateUpdate()
         {
-            if (!IsFollow)
+            if (!IsFollow || !Target)
                 return;
 
             Vector3 newpos = new(Target.position.x, Target.position.y, transform.position.z);

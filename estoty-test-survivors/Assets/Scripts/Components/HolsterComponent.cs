@@ -15,12 +15,12 @@ namespace estoty_test
 
         private WeaponComponent _currentWeaponComponent;
 
-        public void ReplaceWeapon(WeaponBonusScriptableObject meleeData)
+        public void ReplaceWeapon(WeaponView view)
         {
             DropAllWeapon();
 
             _currentWeaponComponent = gameObject.AddComponent<WeaponComponent>();
-            _currentWeaponComponent.CreateWeapon(meleeData.View, WeaponParent, WeaponCenter,
+            _currentWeaponComponent.CreateWeapon(view, WeaponParent, WeaponCenter,
                 WeaponColliderParent, LayerForGameObject, TargetLayerMask);
             CurrentWeapon = _currentWeaponComponent.View;
         }

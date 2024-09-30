@@ -6,7 +6,7 @@ namespace estoty_test
     public class CharacterConfigScriptableObject : ScriptableObject
     {
         public BaseCharacterBehaviourConfigScriptableObject Behaviour;
-        public BaseView View;
+        public BaseEntityView View;
         public DataContainerScriptableObject Data;
     }
 }

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 1050171975149185697}
   - component: {fileID: 8532270599058815444}
   - component: {fileID: 7307912627450656675}
+  - component: {fileID: 3615073934344094758}
   m_Layer: 10
   m_Name: EnemyFast
   m_TagString: Untagged
@@ -401,6 +402,25 @@ MonoBehaviour:
   TargetLayerMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &3615073934344094758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4153534676428634434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67621d7eb1a5cfb4eb018637403d9bb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthComponent: {fileID: 6644888843871909388}
+  UniqueDrop: []
+  StackDrop:
+  - BonusView: {fileID: 7248863607729710140, guid: 0c5cb811759408543b1d1cd989ebb58b, type: 3}
+    StacksCount: 5
+    BonusCount: 100
+  DropRadius: 2
 --- !u!1 &6309750169200561856
 GameObject:
   m_ObjectHideFlags: 0

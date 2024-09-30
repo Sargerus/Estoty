@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace estoty_test
 {
-    public class EnemyFastCharacter : BaseCharacter
+    public class EnemyFastCharacter : BaseEntity
     {
         public Transform chase;
 

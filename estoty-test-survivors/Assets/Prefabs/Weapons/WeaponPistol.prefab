@@ -106,7 +106,7 @@ MonoBehaviour:
   bulletSpawn: {fileID: 7733777213601318855}
   WeaponData:
     AttackRate: 1
-    Damage: 0
+    Damage: 20
     BulletVelocity: 5
     BulletMaxDistance: 20
     BulletView: {fileID: 2764677319443272710, guid: f99ba7d36cef1f848becfb189b4fca91, type: 3}

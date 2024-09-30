@@ -6,6 +6,6 @@ namespace estoty_test
     {
         [TextArea]
         public string DevComment;
-        public abstract BaseCharacter Behaviour { get; }
+        public abstract BaseEntity Behaviour { get; }
     }
 }
