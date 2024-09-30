@@ -6,6 +6,7 @@ namespace estoty_test
     {
         void UpdateExperienceSlider(float value);
         void UpdateHealthSlider(float value);
+        void UpdatePlayerLevel(int value);
         void UpdateKillCounter(int count);
     }
 }

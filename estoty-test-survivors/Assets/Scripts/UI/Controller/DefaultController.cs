@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace estoty_test
@@ -45,7 +46,7 @@ namespace estoty_test
             _model.OnHpChanged += OnHpChanged;
             _model.OnExperienceChanged += OnExperienceChanged;
             _model.OnKillCounterChanged += OnKillCounterChanged;
-            //_model.OnNewLevel += OnNewLevel;
+            _model.OnNewLevel += OnNewLevel;
         }
 
         private void Unsubscribe()
@@ -56,7 +57,7 @@ namespace estoty_test
             _model.OnHpChanged -= OnHpChanged;
             _model.OnExperienceChanged -= OnExperienceChanged;
             _model.OnKillCounterChanged -= OnKillCounterChanged;
-            //_model.OnNewLevel -= OnNewLevel;
+            _model.OnNewLevel -= OnNewLevel;
         }
 
         private void OnHpChanged(float previous, float current)
@@ -74,6 +75,11 @@ namespace estoty_test
         private void OnKillCounterChanged(int count)
         {
             _view.UpdateKillCounter(count);
+        }
+
+        private void OnNewLevel(int level)
+        {
+            _view.UpdatePlayerLevel(level);
         }
 
         public void Dispose()

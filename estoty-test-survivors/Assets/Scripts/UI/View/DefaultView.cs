@@ -27,6 +27,7 @@ namespace estoty_test
         [SerializeField] private Slider healthSlider;
         [SerializeField] private Slider experienceSlider;
         [SerializeField] private TMP_Text killCounter;
+        [SerializeField] private TMP_Text playersLevel;
 
         public override void UpdateExperienceSlider(float value)
         {
@@ -35,12 +36,17 @@ namespace estoty_test
 
         public override void UpdateHealthSlider(float value)
         {
-           healthSlider.value = value;
+            healthSlider.value = value;
         }
 
         public override void UpdateKillCounter(int count)
         {
-           killCounter.SetText(count.ToString());
+            killCounter.SetText(count.ToString());
+        }
+
+        public override void UpdatePlayerLevel(int value)
+        {
+            playersLevel.SetText($"Lvl {value}");
         }
     }
 }
