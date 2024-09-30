@@ -11,6 +11,7 @@ namespace estoty_test
 
         private LevelPoolsSettingsScriptableObject _settings;
         private ILevelMapService _levelMapService;
+        private Transform _chaseTransform;
         private DiContainer _diContainer;
 
         private List<EnemiesPool> _pools = new();
@@ -23,8 +24,10 @@ namespace estoty_test
             _diContainer = diContainer;
         }
 
-        public void StartSpawn()
+        public void StartSpawn(Transform chaseTransform = null)
         {
+            _chaseTransform = chaseTransform;
+
             Setup();
             
             for(int i = 0; i < _pools.Count; i++) 
@@ -64,9 +67,15 @@ namespace estoty_test
                 while (!_levelMapService.TryGetSpawnPosition(out spawnPos))
                     yield return null;
 
-                var newEnemy = pool.Get();
+                IPooledItem<IEnemyCharacterPoolableContainer> newEnemy = pool.Get();
 
-                //add chase transform
+                if (_chaseTransform != null)
+                {
+                    if(newEnemy.Item.GetEntity().TryGetComponent<ChaseTransformMovementComponent>(out var chaseComponent))
+                    {
+                        chaseComponent.Target = _chaseTransform;
+                    }
+                }
 
                 newEnemy.Item.gameObject.transform.position = spawnPos;
                 newEnemy.Item.gameObject.SetActive(true);

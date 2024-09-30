@@ -332,9 +332,9 @@ MonoBehaviour:
   Target: {fileID: 0}
   Rigidbody2D: {fileID: 2810591351654788105}
   MovementData:
-    Acceleration: 4
-    MaxAcceleration: 4
-    Deceleration: 4
+    Acceleration: 2
+    MaxAcceleration: 2
+    Deceleration: 2
   AnimatorController: {fileID: 4923284671053454593}
 --- !u!114 &7938656297171859238
 MonoBehaviour:

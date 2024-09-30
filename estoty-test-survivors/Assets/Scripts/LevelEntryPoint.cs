@@ -45,7 +45,7 @@ namespace estoty_test
                 _healthComponent.OnDeath += OnDeath;
             }
 
-            enemySpawner.StartSpawn();
+            enemySpawner.StartSpawn(player.GetEntity().transform);
         }
 
         private void OnDeath()

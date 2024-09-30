@@ -5,6 +5,7 @@ namespace estoty_test
     public interface IEnemyCharacterPoolableContainer : IPooledItem<IEnemyCharacterPoolableContainer>
     {
         GameObject gameObject { get; }
+        BaseEntity GetEntity();
     }
 
     public class EnemyCharacterContainer : CharacterContainer, IEnemyCharacterPoolableContainer
