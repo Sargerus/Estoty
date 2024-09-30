@@ -2,15 +2,15 @@ using UnityEngine;
 
 namespace estoty_test
 {
-    public class CharacterContainer : MonoBehaviour
+    public abstract class CharacterContainer : MonoBehaviour
     {
-        [SerializeField] private BaseEntity character;
+        [SerializeField] protected BaseEntity character;
 
         public BaseEntity GetEntity() => character;
 
         public IModel GetModel()
         {
-            if(character is IModel model)
+            if (character is IModel model)
                 return model;
 
             return null;

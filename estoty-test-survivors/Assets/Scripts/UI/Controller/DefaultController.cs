@@ -68,7 +68,7 @@ namespace estoty_test
         {
             float currentLevelExp = _model.GetCurrentLevelExperience();
             float nextLevelExp = _model.GetNextLevelExperience();
-            _view.UpdateExperienceSlider((float)(_model.GetExperience() - currentLevelExp) / Mathf.Max(1, (currentLevelExp - nextLevelExp)));
+            _view.UpdateExperienceSlider((float)(_model.GetExperience() - currentLevelExp) / Mathf.Max(1, (nextLevelExp - currentLevelExp)));
         }
 
         private void OnKillCounterChanged(int count)

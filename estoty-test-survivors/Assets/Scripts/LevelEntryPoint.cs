@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Zenject;
 
@@ -9,6 +8,7 @@ namespace estoty_test
         [SerializeField] private FollowTarget cameraFollow;
         [SerializeField] private CharacterContainer characterPrefab;
         [SerializeField] private Transform playerSpawnPosition;
+        [SerializeField] private EnemySpawner enemySpawner;
 
         private IView _view;
         private IController _controller;
@@ -44,6 +44,8 @@ namespace estoty_test
             {
                 _healthComponent.OnDeath += OnDeath;
             }
+
+            enemySpawner.StartSpawn();
         }
 
         private void OnDeath()
@@ -53,7 +55,9 @@ namespace estoty_test
 
         private void OnDestroy()
         {
-            if(_healthComponent != null)
+            enemySpawner.StopSpawn();
+
+            if (_healthComponent != null)
                 _healthComponent.OnDeath -= OnDeath;
         }
     }

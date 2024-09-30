@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1060423799883876481}
+  - component: {fileID: 7020496371220184798}
   m_Layer: 10
   m_Name: EnemyFastContainer
   m_TagString: Untagged
@@ -33,6 +34,19 @@ Transform:
   - {fileID: 7057454862417986444}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7020496371220184798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339123274251277066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5842c82a9cbc094c82a41cfda73becb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 7330276285761218795}
 --- !u!1 &1382416177050659032
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Holster: {fileID: 0}
+  Experience: {fileID: 0}
 --- !u!50 &7829384438467506746
 Rigidbody2D:
   serializedVersion: 4
@@ -388,6 +403,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0215264c5e6093d4b820ce62be4e0a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7330276285761218795 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1050171975149185697, guid: af9a71043bb460249a1e361791507ae4, type: 3}
+  m_PrefabInstance: {fileID: 7721609204717453898}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5948405602070412040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e29d4607fe2374da571b52ba8e37c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &7949975965309342898 stripped
