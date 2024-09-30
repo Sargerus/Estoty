@@ -243,8 +243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthData:
-    MaxHP: 11
-    CurrentHP: 11
+    MaxHP: 16
+    CurrentHP: 16
     AdditionalHP: 0
 --- !u!61 &5179294020169737295
 BoxCollider2D:
