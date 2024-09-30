@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 8532270599058815444}
   - component: {fileID: 7307912627450656675}
   - component: {fileID: 3615073934344094758}
+  - component: {fileID: 7145707067782347472}
   m_Layer: 10
   m_Name: EnemyFast
   m_TagString: Untagged
@@ -359,10 +360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e29d4607fe2374da571b52ba8e37c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chase: {fileID: 0}
-  healthComponent: {fileID: 6644888843871909388}
-  damagableComponent: {fileID: 123481520511699080}
-  chaseTransformMovementComponent: {fileID: 8532270599058815444}
 --- !u!114 &8532270599058815444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,6 +418,19 @@ MonoBehaviour:
     StacksCount: 5
     BonusCount: 100
   DropRadius: 2
+--- !u!114 &7145707067782347472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4153534676428634434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fee7256a8273b8469d5ac592dd13292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthComponent: {fileID: 6644888843871909388}
 --- !u!1 &6309750169200561856
 GameObject:
   m_ObjectHideFlags: 0

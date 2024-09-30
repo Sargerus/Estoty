@@ -1,19 +1,23 @@
+using Zenject;
+
 namespace estoty_test
 {
     public class EnemiesPool : AbstractMonoPool<IEnemyCharacterPoolableContainer>
     {
         private EnemyCharacterContainer _enemyPrefab;
         private int _initializationCount;
+        private DiContainer _diContainer;
 
-        public void Initialize(EnemyCharacterContainer enemyPrefab,  int initializationCount)
+        public void Initialize(EnemyCharacterContainer enemyPrefab,  int initializationCount, DiContainer diContainer)
         {
             _enemyPrefab = enemyPrefab;
             _initializationCount = initializationCount;
+            _diContainer = diContainer;
         }
 
         public override IPooledItem<IEnemyCharacterPoolableContainer> CreateItem()
         {
-            var go = Instantiate(_enemyPrefab, transform);
+            EnemyCharacterContainer go = _diContainer.InstantiatePrefabForComponent<EnemyCharacterContainer>(_enemyPrefab, transform);
             go.gameObject.SetActive(false);
             go.Pool = this;
             return go.GetComponent<IEnemyCharacterPoolableContainer>();

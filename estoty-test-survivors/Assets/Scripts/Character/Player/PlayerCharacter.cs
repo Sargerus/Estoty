@@ -50,7 +50,7 @@ namespace estoty_test
 
         public int GetKillCounter()
         {
-            return 5;
+            return _countDeadMostersService.DeadCount;
         }
 
         private void Start()

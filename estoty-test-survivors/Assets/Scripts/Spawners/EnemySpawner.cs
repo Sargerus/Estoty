@@ -48,7 +48,7 @@ namespace estoty_test
             foreach (var pool in _settings.Pools)
             {
                 EnemiesPool go = _diContainer.InstantiatePrefabForComponent<EnemiesPool>(poolPrefab, transform);
-                go.Initialize(pool.Prefab, 10);
+                go.Initialize(pool.Prefab, 10, _diContainer);
                 go.name = pool.Prefab.name;
                 _pools.Add(go);
             }
