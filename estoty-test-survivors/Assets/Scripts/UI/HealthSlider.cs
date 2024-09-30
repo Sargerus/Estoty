@@ -3,23 +3,17 @@ using UnityEngine.UI;
 
 namespace estoty_test
 {
-    public class HUDBehaviour : MonoBehaviour
+    public class HealthSlider : MonoBehaviour
     {
-        [SerializeField] private FollowTarget cameraFollowTarget;
         [SerializeField] private Slider hpSlider;
 
         private HealthComponent _healthComponent;
 
-        public void SetPlayerInfo(PlayerCharacter character)
+        public void Setup(HealthComponent healthComponent)
         {
-            cameraFollowTarget.Target = character.transform;
-            cameraFollowTarget.IsFollow = true;
-
-            if (character.TryGetComponent<HealthComponent>(out _healthComponent))
-            {
-                hpSlider.value = 1;
-                _healthComponent.OnHpChanged += OnHpChanged;
-            }
+            _healthComponent = healthComponent;
+            hpSlider.value = 1;
+            _healthComponent.OnHpChanged += OnHpChanged;
         }
 
         private void OnHpChanged(float previous, float current)
